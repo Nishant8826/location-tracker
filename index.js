@@ -1,12 +1,12 @@
 const express = require("express");
 const socketio = require("socket.io");
 const http = require("http");
-
+const dotenv = require("dotenv").config();
 const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
 
-const PORT = 5000
+const PORT = process.env.PORT || 5000
 
 app.set("view engine", "ejs");
 app.use(express.static('public'));
