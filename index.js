@@ -11,6 +11,7 @@ const PORT = process.env.PORT || 5000
 app.set("view engine", "ejs");
 app.use(express.static('public'));
 
+
 io.on("connection", function (si) {
     console.log("connected");
     si.on('sendLocation', function (data) {
@@ -26,6 +27,8 @@ app.get('/', (req, res) => {
     res.render("index");
 })
 
-server.listen(PORT, () => {
-    console.log(`Server is listening on 5000`);
+
+
+server.listen(PORT, '0.0.0.0', () => {
+    console.log(`Server is listening on ${PORT}`);
 })
