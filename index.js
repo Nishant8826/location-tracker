@@ -6,6 +6,8 @@ const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
 
+const PORT = 5000
+
 app.set("view engine", "ejs");
 app.use(express.static('public'));
 
@@ -24,6 +26,6 @@ app.get('/', (req, res) => {
     res.render("index");
 })
 
-server.listen(5000, () => {
+server.listen(PORT, () => {
     console.log(`Server is listening on 5000`);
 })
